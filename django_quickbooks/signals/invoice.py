@@ -8,24 +8,24 @@ RealmModel = get_realm_model()
 
 
 @receiver(invoice_created)
-def create_qbd_invoice(sender, qbd_model_mixin_obj, realm_id, *args, **kwargs):
+def create_qbd_invoice(sender, *args, **kwargs):
     qbd_task_create.send(
-        sender=qbd_model_mixin_obj.__class__,
+        sender=kwargs['qbd_model_mixin_obj'].__class__,
         qb_operation=QUICKBOOKS_ENUMS.OPP_ADD,
         qb_resource=QUICKBOOKS_ENUMS.RESOURCE_INVOICE,
-        object_id=qbd_model_mixin_obj.id,
-        content_type=ContentType.objects.get_for_model(qbd_model_mixin_obj),
-        realm_id=realm_id,
+        object_id=kwargs['qbd_model_mixin_obj'].id,
+        content_type=ContentType.objects.get_for_model(kwargs['qbd_model_mixin_obj']),
+        realm_id=kwargs['realm_id'],
     )
 
 
 @receiver(invoice_updated)
-def update_qbd_invoice(sender, qbd_model_mixin_obj, realm_id, *args, **kwargs):
+def update_qbd_invoice(sender, *args, **kwargs):
     qbd_task_create.send(
-        sender=qbd_model_mixin_obj.__class__,
+        sender=kwargs['qbd_model_mixin_obj'].__class__,
         qb_operation=QUICKBOOKS_ENUMS.OPP_MOD,
         qb_resource=QUICKBOOKS_ENUMS.RESOURCE_INVOICE,
-        object_id=qbd_model_mixin_obj.id,
-        content_type=ContentType.objects.get_for_model(qbd_model_mixin_obj),
-        realm_id=realm_id,
+        object_id=kwargs['qbd_model_mixin_obj'].id,
+        content_type=ContentType.objects.get_for_model(kwargs['qbd_model_mixin_obj']),
+        realm_id=kwargs['realm_id'],
     )

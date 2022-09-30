@@ -1,20 +1,13 @@
 from django.dispatch import Signal
 
-qbd_task_create = Signal(providing_args=[
-    "qb_operation",
-    "qb_resource",
-    "object_id",
-    "content_type",
-    "realm_id",
-    "instance",
-])
+qbd_task_create = Signal()
 
-customer_created = Signal(providing_args=["qbd_model_mixin_obj", "realm_id"])
-customer_updated = Signal(providing_args=["qbd_model_mixin_obj", "realm_id"])
-invoice_created = Signal(providing_args=["qbd_model_mixin_obj", "realm_id"])
-invoice_updated = Signal(providing_args=["qbd_model_mixin_obj", "realm_id"])
-realm_authenticated = Signal(providing_args=["realm"])
-qbd_first_time_connected = Signal(providing_args=["realm_id"])
+customer_created = Signal()
+customer_updated = Signal()
+invoice_created = Signal()
+invoice_updated = Signal()
+realm_authenticated = Signal()
+qbd_first_time_connected = Signal()
 
 from django_quickbooks.signals.customer import *
 from django_quickbooks.signals.invoice import *
