@@ -6,7 +6,7 @@ from django.utils import timezone
 class RealmQuerySet(models.QuerySet):
     def find(self, username, password):
         try:
-            realm = self.get(id=username)
+            realm = self.get(name=username)
             if realm.check_password(password):
                 return realm
         except ObjectDoesNotExist:
