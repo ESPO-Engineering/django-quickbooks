@@ -27,12 +27,12 @@ DEFAULTS = {
         'django_quickbooks.processors.ItemServiceQueryResponseProcessor',
     ),
 
-    'RABBITMQ_DEFAULT_HOST': '192.168.140.40:5672',
+    'RABBITMQ_DEFAULT_HOST': 'localhost',
     'RABBITMQ_DEFAULT_USER': 'quickbooks',
     'RABBITMQ_DEFAULT_PASS': 'quickbooks',
     'RABBITMQ_DEFAULT_VHOST': 'quickbooks',
 
-    'REDIS_DEFAULT_HOST': 'localhost',
+    'REDIS_DEFAULT_HOST': '192.168.140.40',
     'REDIS_DEFAULT_PORT': 6379,
     'REDIS_DEFAULT_DB': 0,
     'REDIS_DEFAULT_PASSWORD': None,
