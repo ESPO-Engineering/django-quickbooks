@@ -14,7 +14,7 @@ DEFAULTS = {
     'REALM_MODEL_CLASS': 'django_quickbooks.models.Realm',
     'REALM_SESSION_MODEL_CLASS': 'django_quickbooks.models.RealmSession',
     'QBD_TASK_MODEL_CLASS': 'django_quickbooks.models.QBDTask',
-    
+
     'REALM_CONNECTION_DECORATOR': 'django_quickbooks.decorators.base_realm_connection',
 
     'RESPONSE_PROCESSORS': (
@@ -27,7 +27,7 @@ DEFAULTS = {
         'django_quickbooks.processors.ItemServiceQueryResponseProcessor',
     ),
 
-    'RABBITMQ_DEFAULT_HOST': 'localhost',
+    'RABBITMQ_DEFAULT_HOST': '192.168.140.40:5672',
     'RABBITMQ_DEFAULT_USER': 'quickbooks',
     'RABBITMQ_DEFAULT_PASS': 'quickbooks',
     'RABBITMQ_DEFAULT_VHOST': 'quickbooks',
