@@ -31,7 +31,7 @@ class SessionManager(BaseSessionManager):
         super().__init__(**kwargs)
 
     def authenticate(self, username, password):
-        return Realm.objects.find(username, password)
+        return Realm.objects.find(name=username, password=password)
 
     def create_session(self, realm):
         realm_session = RealmSession.objects.create(realm=realm)
